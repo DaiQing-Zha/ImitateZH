@@ -1,0 +1,25 @@
+{
+  "name": "imitatezh",
+  "version": "1.0.0",
+  "description": "a project imitate zhihu",
+  "main": "index.android.js",
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "command"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git "
+  },
+  "keywords": [
+    "key"
+  ],
+  "author": "charles",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-native": "^0.48.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
+  }
+}

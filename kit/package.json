@@ -1,0 +1,17 @@
+{
+  "name": "kit",
+  "version": "1.0.0",
+  "description": "imittezh' react-native uikit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "charles",
+    "zh",
+    "native",
+    "uikit"
+  ],
+  "author": "charles",
+  "license": "ISC"
+}
