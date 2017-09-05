@@ -8,7 +8,9 @@
 
 import CommonStyles from './commonStyles';
 import Header from './header';
+import Fetch from './cusFetch'
 export {
     CommonStyles,
-    Header
+    Header,
+    Fetch,
 }

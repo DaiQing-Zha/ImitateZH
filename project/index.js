@@ -1,3 +1,5 @@
+import './storage/index';
+import './storage/sync';
 import AppRoute from './routes';
 import React, {Component} from 'react';
 import {Provider} from 'react-redux';

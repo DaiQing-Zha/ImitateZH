@@ -2,6 +2,7 @@ import {StackNavigator, DrawerNavigator, NavigationActions} from 'react-navigati
 import React, {Component} from 'react';
 import {View, Text,StatusBar} from 'react-native';
 import PageMain from './main/index';
+import NewsDetail from './detail/index';
 import MainDraw  from './draw/index';
 import {CommonStyles} from 'kit';
 /*首页带抽屉的Navigator*/
@@ -16,6 +17,7 @@ const MainWithDraw = DrawerNavigator({
 /*路由栈注册*/
 const stackRouteConfigs = {
     PageMain: {screen: MainWithDraw},
+    PageNewsDetail: {screen: NewsDetail},
 };
 
 const stackNavigatorConfig = {
