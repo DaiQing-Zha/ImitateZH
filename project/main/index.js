@@ -157,7 +157,7 @@ _sectionComp = (info) => {
     let dataSource = this.props.mainStore.dataSource;
     return (<View style = {{flex:1}}>
       <SectionList
-        renderSectionHeader={this._sectionComp}
+        // renderSectionHeader={this._sectionComp}
         renderItem={({item}) => <ListItem data={item} navigation={this.props.navigation} />}
         sections={dataSource}
         keyExtractor = {(item,index) => "index" + index + item}

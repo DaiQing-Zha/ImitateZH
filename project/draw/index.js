@@ -4,13 +4,14 @@ import {
   Text,
   View
 } from 'react-native';
+import {CommonStyles} from 'kit';
 
 export default class MainDraw extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Drawer is useful 
+          侧滑栏
         </Text>
       </View>
     );
@@ -22,16 +23,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: CommonStyles.appColor,
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    color: '#fff',
   },
 });
