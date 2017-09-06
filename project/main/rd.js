@@ -1,5 +1,5 @@
 import {getLastedNews, getBeforeNews, getThemeData} from './webApi';
-import {lastestNewsData, yesterdayNews} from '../../data/lastestNews';
+import {lastestNewsData, yesterdayNews} from '../bean/lastestNews';
 import {Utils} from 'kit';
 const initalState = {
     isRefreshing: false,
