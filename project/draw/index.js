@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import {
   StyleSheet,
   Text,
@@ -6,10 +7,11 @@ import {
 } from 'react-native';
 import {CommonStyles} from 'kit';
 
-export default class MainDraw extends Component {
+class MainDraw extends Component {
   render() {
+    let nightMode = this.props.nightMode;
     return (
-      <View style={styles.container}>
+      <View style={[styles.container,{backgroundColor:nightMode?'#343434':CommonStyles.appColor}]}>
         <Text style={styles.welcome}>
           侧滑栏
         </Text>
@@ -32,3 +34,8 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
+export default connect((state) => {
+  return {
+    nightMode:state.mainStore.nightMode
+  }
+})(MainDraw);

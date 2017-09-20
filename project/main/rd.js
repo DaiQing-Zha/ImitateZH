@@ -31,14 +31,14 @@ export function mainReducer(state = initalState, action) {
           dataSource.forEach((item, index, input) => {
               let originDate = input[index].date;
               let dateStr = '';
-              // if (Utils.dateStrToDate(originDate).toString() === new Date().toString()) {
-              //     dateStr = '今日热闻';
-              // } else {
-              //     dateStr = `${originDate.substring(4, 6)}月${originDate.substring(6, 8)}日  ${Utils.getWeekDay(Utils.dateStrToDate(originDate))}`;
-              // }
+              if (Utils.dateStrToDate(originDate).toString() === new Date().toString()) {
+                  dateStr = '今日热闻';
+              } else {
+                  dateStr = `${originDate.substring(4, 6)}月${originDate.substring(6, 8)}日  ${Utils.getWeekDay(Utils.dateStrToDate(originDate))}`;
+              }
               input[index].key = dateStr;
           });
-          return {
+         return {
               ...state,
               isRefreshing: false,
               topDataSource: action.data.top_stories,
@@ -59,6 +59,12 @@ export function mainReducer(state = initalState, action) {
                           renderType: 'home',
                       };
               }
+              case actionTypes.ACTION_CHANGE_NIGHT_MODE:
+                let nightMode = !state.nightMode;
+                return{
+                  ...state,
+                  nightMode
+                }
       default:
           return {...state};
   }

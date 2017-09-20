@@ -1,10 +1,10 @@
 import {StackNavigator, DrawerNavigator, NavigationActions} from 'react-navigation';
 import React, {Component} from 'react';
-import {View, Text,StatusBar} from 'react-native';
+import {View, Text,StatusBar,DeviceEventEmitter} from 'react-native';
 import PageMain from './main/index';
 import NewsDetail from './detail/index';
 import MainDraw  from './draw/index';
-import {CommonStyles} from 'kit';
+import {CusModal,CommonStyles} from 'kit';
 /*首页带抽屉的Navigator*/
 const MainWithDraw = DrawerNavigator({
     main: {screen: PageMain},
@@ -40,8 +40,10 @@ Navigator.router.getStateForAction = (action, state) => {
 class AppRoute extends Component {
     constructor() {
         super();
+        this.state = {
+          modalProps:{menuItems:[],visible:false,},
+        }
     }
-
     render() {
       return (<View style={{flex: 1}}>
           <StatusBar
@@ -58,7 +60,25 @@ class AppRoute extends Component {
                   console.log('******************************');
               }
           }}/>
+          <CusModal visible = {this.state.modalProps.visible}
+          menuItems = {this.state.modalProps.menuItems}
+          renderCusChild = {this.state.modalProps.renderCusChild}
+          animationType = {this.state.modalProps.animationType}/>
       </View>);
+    }
+    componentDidMount(){
+      this.modalDidChangedListenner = DeviceEventEmitter.addListener("modalDidChanged",(modalProps) => {
+        this.setState({
+          modalProps:modalProps
+        });
+      });
+      this.statusBarNightModeListenner = DeviceEventEmitter.addListener("statusBarDidChanged",(nightMode) => {
+        StatusBar.setBackgroundColor(nightMode?'#212121':'rgb(27,163,234)');
+      })
+    }
+    componentWillUnmount(){
+      this.modalDidChangedListenner.remove();
+      this.statusBarNightModeListenner.remove();
     }
 }
 

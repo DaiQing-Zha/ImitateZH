@@ -11,7 +11,6 @@ let Utils = {
      * @returns {Date}
      */
     dateStrToDate: (dateStr) => {
-      console.log('执行----dateStrToDate');
         if (dateStr && dateStr.length === 8) {
             let year = dateStr.substring(0, 4);
             let month = dateStr.substring(4, 6);

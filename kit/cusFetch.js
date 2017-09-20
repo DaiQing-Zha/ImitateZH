@@ -32,13 +32,13 @@ const Fetch = (url, method = 'GET') => {
     return new Promise((resolve, reject) => {
         let httpStatus = 200;
         let errMsg = '';
-        let timeOut = setTimeout(() => {
-            errMsg = "抱歉，网络超时-_-!";
-            handleError(errMsg);
-            reject(errMsg);
-        }, TIMEOUT);
+        // let timeOut = setTimeout(() => {
+        //     errMsg = "抱歉，网络超时-_-!";
+        //     handleError(errMsg);
+        //     reject(errMsg);
+        // }, TIMEOUT);
         fetch(url, request).then((res) => {
-            clearTimeout(timeOut);
+            // clearTimeout(timeOut);
             httpStatus = res.status;
             return res.json();
         }).then((res) => {
@@ -51,7 +51,7 @@ const Fetch = (url, method = 'GET') => {
                 reject(res);
             }
         }).catch((err) => {
-            clearTimeout(timeOut);
+            // clearTimeout(timeOut);
             errMsg = "抱歉，网络错误0_0!";
             handleError(errMsg);
             reject(errMsg);

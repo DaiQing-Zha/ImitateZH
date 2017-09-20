@@ -19,6 +19,8 @@ const CommonStyles = {
         fontWeight: 'bold',
         textAlign: 'center',
         textAlignVertical: 'center'
-    }
+    },
+
+    modalWith:ExtraDimensions.get('REAL_WINDOW_WIDTH') - 80,
 }
 export default CommonStyles;
